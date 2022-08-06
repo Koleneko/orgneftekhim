@@ -39,11 +39,41 @@ const Home: NextPage = () => {
             "h-20 flex items-center justify-around bg-[#000000] text-white"
           }
         >
-          <a>О компании</a>
-          <a>Продукция</a>
-          <a>Паспорта качества</a>
-          <a>Клиентам</a>
-          <a>Контакты</a>
+          <div
+            className={
+              "flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] ]"
+            }
+          >
+            О компании
+          </div>
+          <div
+            className={
+              "flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
+            }
+          >
+            Продукция
+          </div>
+          <div
+            className={
+              "flex items-center justify-center w-[15rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
+            }
+          >
+            Паспорта качества
+          </div>
+          <div
+            className={
+              "flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
+            }
+          >
+            Клиентам
+          </div>
+          <div
+            className={
+              "flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] tracking-[.25em]"
+            }
+          >
+            Контакты
+          </div>
         </div>
         <div
           className={"h-screen bg-[url('../../public/assets/images/bg.png')]"}
@@ -60,7 +90,7 @@ const Home: NextPage = () => {
         </div>
         <div
           className={
-            "flex items-center justify-between h-96 bg-[#757575] text-white"
+            "flex items-center justify-between h-96 bg-[#000000] text-white"
           }
         >
           <div className={"flex flex-col"}>
