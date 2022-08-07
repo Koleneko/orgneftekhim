@@ -4,7 +4,7 @@ import { trpc } from "../utils/trpc";
 import Image from "next/image";
 import logo from "../../public/assets/images/LOGO.svg";
 import tel from "../../public/assets/images/tel.svg";
-import maill from "../../public/assets/images/maill.svg";
+import mail from "../../public/assets/images/mail.svg";
 import logow from "../../public/assets/images/logoWhite.svg";
 
 const Home: NextPage = () => {
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         <title>ОРГНЕФТЕХИМ</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={""}>
+      <div>
         <div className={"flex justify-between"}>
           <div className={"flex items-center"}>
             <Image src={tel} alt="" />
@@ -37,9 +37,10 @@ const Home: NextPage = () => {
             "h-20 flex items-center justify-around bg-[#000000] text-white"
           }
         >
+          //!!! rem не пиши плз w-1 == w-[0,25rem] w-4 == w-[1rem] короче 4 пункта в тэйлвинде == 1 рем
           <div
             className={
-              "flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] ]"
+              "flex items-center justify-center w-40 bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] ]"
             }
           >
             О компании
