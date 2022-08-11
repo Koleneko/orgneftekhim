@@ -5,7 +5,7 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
-import Layout from "src/layouts/Layout";
+import Layout from "src/components/layouts/Layout";
 
 const MyApp: AppType = ({
   Component,
