@@ -63,21 +63,24 @@ export default function Layout({ children }: LayoutProps) {
             <a className={"tablet:hidden active:opacity-25"}>
               <Image src={bb} alt="" />{" "}
             </a>
-            <Link
-              href={"/about"}
-              className={
-                "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] ]"
-              }
-            >
-              О компании
+            <Link href={"/about"}>
+              <div
+                className={
+                  "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
+                }
+              >
+                О нас
+              </div>
             </Link>
-            <div
-              className={
-                "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
-              }
-            >
-              Продукция
-            </div>
+            <Link href={"/products"}>
+              <div
+                className={
+                  "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
+                }
+              >
+                Продукция
+              </div>
+            </Link>
             <div
               className={
                 "hidden tablet:flex items-center justify-center w-[15rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
