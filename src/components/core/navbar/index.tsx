@@ -1,13 +1,15 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import tel from "public/assets/svg/tel.svg";
-import logo from "public/assets/svg/logo-black.svg";
 import mail from "public/assets/svg/mail.svg";
 import bb from "public/assets/svg/burger-button.svg";
 import Link from "next/link";
 import BlackLogo from "src/components/misc/BlackLogo";
+import { useRouter } from "next/router";
 
 const Navbar: FC = () => {
+  const path = useRouter().pathname;
+
   return (
     <div>
       <div
@@ -21,24 +23,25 @@ const Navbar: FC = () => {
           }
         >
           <Image src={tel} alt={"Телефон"} />
-          <div className={"hidden tablet:flex pl-[10px] "}>
+          <a
+            href={"tel:+7(915)097-23-97"}
+            className={"hidden tablet:flex pl-[10px] "}
+          >
             +7 (915) 097-23-97
-          </div>
+          </a>
         </div>
-        <Link href="/">
+        <Link href="/" scroll={false}>
           <div
             className={
-              "flex flex-col text-[30px] font-[800] mobile:text-[20px]"
+              "flex flex-col items-center text-[30px] font-[800] mobile:text-[20px]"
             }
           >
-            {/*<Image className={"max-w-3xl"} src={logo} alt="" />*/}
             <BlackLogo />
-            <a className={"p-[25px] max"} href="src/components/layouts/Layout">
-              ОРГНЕФТЕХИМ
-            </a>
+            <span className={"p-[25px] max"}>ОРГНЕФТЕХИМ</span>
           </div>
         </Link>
-        <div
+        <a
+          href={"mailto:orgneftekhim@gmail.com"}
           className={
             "flex items-center absolute right-10 mobile:right-5 mobile:top-5 tablet:top-[100px]"
           }
@@ -47,56 +50,67 @@ const Navbar: FC = () => {
             orgneftekhim@gmail.com
           </div>
           <Image src={mail} alt="" />
-        </div>
+        </a>
       </div>
 
       <div
         className={
-          " h-20 flex items-center justify-center bg-[#000000] text-white space-x-[35px]"
+          "h-20 flex items-center justify-center bg-[#000000] text-white space-x-[35px]"
         }
       >
         <a className={"tablet:hidden active:opacity-25"}>
-          <Image src={bb} alt="" />{" "}
+          <Image src={bb} alt="" />
         </a>
-        <Link href={"/about"}>
+        <Link href={"/about"} scroll={false}>
           <div
             className={
-              "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
+              "nav-button-desktop" +
+              (path === "/about" ? " bg-gray-400 text-black" : "")
             }
           >
             О нас
           </div>
         </Link>
-        <Link href={"/products"}>
+        <Link href={"/products"} scroll={false}>
           <div
             className={
-              "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
+              "nav-button-desktop" +
+              (path === "/products" ? " bg-gray-400 text-black" : "")
             }
           >
             Продукция
           </div>
         </Link>
-        <div
-          className={
-            "hidden tablet:flex items-center justify-center w-[15rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
-          }
-        >
-          Паспорта качества
-        </div>
-        <div
-          className={
-            "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px] "
-          }
-        >
-          Клиентам
-        </div>
-        <div
-          className={
-            "hidden tablet:flex items-center justify-center w-[10rem] bg-[#000000] hover:bg-white hover:text-black leading-[4rem] rounded-[10px]"
-          }
-        >
-          Контакты
-        </div>
+        <Link href={"/certificates"} scroll={false}>
+          <div
+            className={
+              "nav-button-desktop" +
+              (path === "/certificates" ? " bg-gray-400 text-black" : "")
+            }
+          >
+            Паспорта качества
+          </div>
+        </Link>
+        <Link href={"/for-customers"} scroll={false}>
+          <div
+            className={
+              "nav-button-desktop" +
+              (path === "/for-customers" ? " bg-gray-400 text-black" : "")
+            }
+          >
+            Клиентам
+          </div>
+        </Link>
+        <Link href={"/contacts"} scroll={false}>
+          <div
+            className={
+              "nav-button-desktop" +
+              (path === "/contacts" ? " bg-gray-400 text-black" : "")
+            }
+          >
+            Контакты
+          </div>
+        </Link>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            quality={100}
+            quality={60}
             alt="Фоновое изображение"
           />
         </div>
