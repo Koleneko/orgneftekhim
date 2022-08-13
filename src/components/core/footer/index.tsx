@@ -6,26 +6,26 @@ const Footer: FC = () => {
   return (
     <div
       className={
-        "flex items-center justify-center desktop:h-[300px] bg-[#000000] text-white mobile:h-[70px]"
+        "flex items-center  flex-col text-center tablet:flex-row justify-center desktop:h-75 bg-black text-white h-24"
       }
     >
-      <div className={"flex flex-col mobile:text-[10px] pl-[15px]"}>
+      <div className={"flex flex-col mobile:text-[10px]"}>
         <Image src={logoWhite} alt="" />
         ОРГНЕФТЕХИМ
       </div>
       <div>
-        <div className={"flex justify-center mobile:text-[5px]"}>
+        <div className={"flex flex-col justify-center text-[5px]"}>
           <a>О компании</a>
           <a>Продукция</a>
           <a>Паспорта качества</a>
           <a>Клиентам</a>
           <a>Контакты</a>
         </div>
-        <div className={"mobile:text-[5px]"}>
-          ООО &quot;ОРГНЕФТЕХИМ&quot; , 142403, Россия, Московская область, г.
-          Ногинск, ул. Индустриальная, д. 41В, Э/О 2/332. Телефон: +7(915)
-          097-39-27, +7(915) 097-23-97, E-mail: orgneftekhim@gmail.com
-        </div>
+      </div>
+      <div className={"text-[5px] text-center tablet:text-[8px] "}>
+        ООО &quot;ОРГНЕФТЕХИМ&quot; , 142403, Россия, Московская область, г.
+        Ногинск, ул. Индустриальная, д. 41В, Э/О 2/332. Телефон: +7(915)
+        097-39-27, +7(915) 097-23-97, E-mail: orgneftekhim@gmail.com
       </div>
     </div>
   );
