@@ -11,9 +11,8 @@ export interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <Navbar />
       <div className="h-full w-full">
-        <div className="absolute -z-10 h-full w-full">
+        <div className="fixed -z-10 h-full w-full">
           <Image
             src={bg}
             layout="fill"
@@ -23,6 +22,7 @@ export default function Layout({ children }: LayoutProps) {
             alt="Фоновое изображение"
           />
         </div>
+        <Navbar />
         <main className={"h-screen flex items-center justify-center"}>
           {children}
         </main>
