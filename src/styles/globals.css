@@ -14,11 +14,31 @@
     @apply mobile:text-[20px] mobile:h-48 mobile:w-72 text-4xl flex items-center justify-center bg-[#ECECEC] rounded-2xl tablet:h-[20%] tablet:w-[40%];
   }
   .nav-button-desktop {
-    @apply cursor-pointer hidden tablet:flex items-center text-sm justify-center w-40 bg-black hover:bg-white hover:text-black  rounded-2xl desktop:text-base desktop:leading-[3.5rem];
+    @apply cursor-pointer hidden tablet:flex items-center text-sm leading-10 justify-center w-40 bg-black hover:bg-white hover:text-black  rounded-2xl desktop:text-base desktop:leading-[3.5rem];
   }
 }
 
 @layer utilities {
+  .spin-slow {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 25s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 25s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .animation-delay-250 {
     animation-delay: 250ms;
   }

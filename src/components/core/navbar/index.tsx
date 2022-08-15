@@ -14,7 +14,7 @@ const Navbar: FC = () => {
     <div>
       <div
         className={
-          "bg-gradient-to-l from-[#B7C9CF] flex items-center justify-center pt-[2.5rem] mobile:pt-2.5"
+          "bg-white bg-gradient-to-l from-[#B7C9CF] flex items-center justify-center pt-[2.5rem] mobile:pt-2.5"
         }
       >
         <div
