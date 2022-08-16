@@ -5,13 +5,21 @@ export type fillColor = "black" | "white";
 export interface ILogoProps {
   fillColor?: fillColor;
   className?: string;
+  size: {
+    width: string | number;
+    height: string | number;
+  };
 }
 
-const Logo: FC<ILogoProps> = ({ className = "", fillColor = "white" }) => {
+const Logo: FC<ILogoProps> = ({
+  className = "",
+  fillColor = "black",
+  size = { width: 140, height: 140 },
+}) => {
   return (
     <svg
-      width="140"
-      height="140"
+      width={size.width}
+      height={size.height}
       viewBox="0 0 140 140"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
