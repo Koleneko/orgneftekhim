@@ -4,8 +4,8 @@ import tel from "public/assets/svg/tel.svg";
 import mail from "public/assets/svg/mail.svg";
 import bb from "public/assets/svg/burger-button.svg";
 import Link from "next/link";
-import BlackLogo from "src/components/misc/BlackLogo";
 import { useRouter } from "next/router";
+import Logo from "src/components/misc/Logo";
 
 const Navbar: FC = () => {
   const path = useRouter().pathname;
@@ -36,7 +36,7 @@ const Navbar: FC = () => {
               "flex flex-col items-center text-[30px] font-[800] mobile:text-[20px]"
             }
           >
-            <BlackLogo />
+            <Logo fillColor={"black"} />
             <span className={"p-[25px] max"}>ОРГНЕФТЕХИМ</span>
           </div>
         </Link>
