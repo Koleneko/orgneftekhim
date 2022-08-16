@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <div className="h-full w-full">
-        <div className="fixed -z-10 h-full w-full">
+        <div className="fixed bg-local -z-10 h-screen w-screen">
           <Image
             src={bg}
             layout="fill"
