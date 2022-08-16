@@ -1,7 +1,7 @@
 import Image from "next/image";
 import bg from "public/assets/images/bg.png";
-import React from "react";
-import Navbar from "../core/navbar";
+import React, { useCallback, useEffect, useState } from "react";
+import Navbar from "src/components/core/navbar/DesktopNavbar";
 import Footer from "../core/footer";
 
 export interface LayoutProps {
@@ -9,6 +9,37 @@ export interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY > lastScrollY) {
+        // if scroll down hide the navbar
+        setShowNav(false);
+      } else {
+        // if scroll up show the navbar
+        setShowNav(true);
+      }
+
+      // remember current page location to use in the next move
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  const controlNavbarCallback = useCallback(controlNavbar, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", controlNavbarCallback);
+
+      // cleanup function
+      return () => {
+        window.removeEventListener("scroll", controlNavbarCallback);
+      };
+    }
+  }, [lastScrollY, controlNavbarCallback]);
+
   return (
     <>
       <div className="h-full w-full">
@@ -22,7 +53,7 @@ export default function Layout({ children }: LayoutProps) {
             alt="Фоновое изображение"
           />
         </div>
-        <Navbar />
+        <Navbar hidden={showNav} />
         <main className={"h-screen flex items-center justify-center"}>
           {children}
         </main>
