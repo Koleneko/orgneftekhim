@@ -72,7 +72,7 @@ const MobileNavBtn: FC<{ path: string }> = ({ path }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef(null);
 
-  useListenOutsideClick(menuRef, () => setShowMenu(false), btnRef);
+  // useListenOutsideClick(menuRef, () => setShowMenu(false), btnRef);
 
   useEffect(() => {
     console.log("showMenu", showMenu);
@@ -85,7 +85,7 @@ const MobileNavBtn: FC<{ path: string }> = ({ path }) => {
         <div
           id="dropdownNavbar"
           ref={menuRef}
-          className="bg-black absolute flex flex-col items-center w-[80%] justify-self-center rounded-xl gap-2 p-5 "
+          className=" bg-gray-800 absolute flex flex-col items-center w-screen justify-self-center gap-2 p-5 mt-[270px]"
         >
           <Link href={"/about"} scroll={false}>
             <div
@@ -197,7 +197,7 @@ const Navbar: FC<{ hidden?: boolean }> = ({ hidden }) => {
 
       <div
         className={
-          "top-25 w-full h-20 flex items-center justify-center bg-black text-white space-x-[35px]"
+          "top-25 w-full h-20 flex items-center justify-center bg-black text-white "
         }
       >
         {isMobile ? (
