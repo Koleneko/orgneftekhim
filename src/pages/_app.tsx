@@ -11,16 +11,11 @@ const MyApp: AppType = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <>
-      <Head>
-        <meta name="yandex-verification" content="baaf62fcbc987ba4" />
-      </Head>
-      <SessionProvider session={session}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SessionProvider>
-    </>
+    <SessionProvider session={session}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
   );
 };
 
