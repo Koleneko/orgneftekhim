@@ -31,7 +31,7 @@ export default function Layout({ children }: LayoutProps) {
           />
         </div>
         <Navbar hidden={showNav} />
-        <main className={"h-screen flex items-center justify-center"}>
+        <main className={"min-h-screen flex items-center justify-center"}>
           {children}
         </main>
       </div>
