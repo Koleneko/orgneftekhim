@@ -1,6 +1,6 @@
 import Image from "next/image";
 import bg from "public/assets/images/bg.png";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "src/components/core/navbar/DesktopNavbar";
 import Footer from "../core/footer";
 
@@ -9,36 +9,13 @@ export interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const [showNav, setShowNav] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        // if scroll down hide the navbar
-        setShowNav(false);
-      } else {
-        // if scroll up show the navbar
-        setShowNav(true);
-      }
-
-      // remember current page location to use in the next move
-      setLastScrollY(window.scrollY);
-    }
-  };
-
-  const controlNavbarCallback = useCallback(controlNavbar, []);
+  const [showNav, setShowNav] = useState<boolean>();
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbarCallback);
-
-      // cleanup function
-      return () => {
-        window.removeEventListener("scroll", controlNavbarCallback);
-      };
+    if (window) {
+      window.innerWidth < 768 ? setShowNav(false) : setShowNav(true);
     }
-  }, [lastScrollY, controlNavbarCallback]);
+  }, []);
 
   return (
     <>
