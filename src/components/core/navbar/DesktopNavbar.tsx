@@ -1,12 +1,13 @@
+import React, { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import tel from "public/assets/svg/tel.svg";
+import mail from "public/assets/svg/mail.svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import mail from "public/assets/svg/mail.svg";
-import tel from "public/assets/svg/tel.svg";
-import React, { FC, useRef, useState } from "react";
 import Logo from "src/components/misc/Logo";
-import BurgerBtn from "src/components/ui/burger-button/BurgerBtn";
 import useMediaQuery from "src/hooks/useMediaQuery";
+import BurgerBtn from "src/components/ui/burger-button/BurgerBtn";
+import useListenOutsideClick from "src/hooks/useListenOutsideClick";
 
 const DesktopNavBtn: FC<{ path: string }> = ({ path }) => {
   return (
@@ -70,6 +71,12 @@ const MobileNavBtn: FC<{ path: string }> = ({ path }) => {
 
   const menuRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef(null);
+
+  // useListenOutsideClick(menuRef, () => setShowMenu(false), btnRef);
+
+  useEffect(() => {
+    console.log("showMenu", showMenu);
+  }, [showMenu]);
 
   return (
     <>
@@ -144,30 +151,31 @@ const MobileNavBtn: FC<{ path: string }> = ({ path }) => {
 
 const Navbar: FC<{ hidden?: boolean }> = ({ hidden }) => {
   const path = useRouter().pathname;
+
   const isMobile = useMediaQuery(768);
 
   return (
     <div>
       <div
         className={
-          "bg-white bg-gradient-to-l from-[#B7C9CF] flex items-center justify-center pt-[2.5rem] sm:pt-2.5"
+          "bg-white bg-gradient-to-l from-[#B7C9CF] flex items-center justify-center pt-[2.5rem] mobile:pt-2.5"
         }
       >
         <a
           href={"tel:+7(915)097-23-97"}
           className={
-            "flex items-center absolute left-10 sm:left-5 sm:top-5 md:top-[100px]"
+            "flex items-center absolute left-10 mobile:left-5 mobile:top-5 tablet:top-[100px]"
           }
         >
           <Image src={tel} alt={"Телефон"} />
-          <span className={"hidden md:flex pl-[10px] "}>
+          <span className={"hidden tablet:flex pl-[10px] "}>
             +7 (915) 097-23-97
           </span>
         </a>
         <Link href="/" scroll={false}>
           <div
             className={
-              "flex flex-col items-center text-[30px] font-[800] sm:text-[20px]"
+              "flex flex-col items-center text-[30px] font-[800] mobile:text-[20px]"
             }
           >
             <Logo size={{ height: 140, width: 140 }} />
@@ -177,10 +185,10 @@ const Navbar: FC<{ hidden?: boolean }> = ({ hidden }) => {
         <a
           href={"mailto:orgneftekhim@gmail.com"}
           className={
-            "flex items-center absolute right-10 sm:right-5 sm:top-5 md:top-[100px]"
+            "flex items-center absolute right-10 mobile:right-5 mobile:top-5 tablet:top-[100px]"
           }
         >
-          <div className={"hidden md:flex pr-[10px]"}>
+          <div className={"hidden tablet:flex pr-[10px]"}>
             orgneftekhim@gmail.com
           </div>
           <Image src={mail} alt="" />
