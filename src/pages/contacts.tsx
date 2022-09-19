@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 
-const Contacts: NextPage = () => {
+const Contacts: NextPage<{ title: string }> = () => {
   return (
     <div className="grid grid-rows-3 relative items-center text-center justify-center my-2 py-10 px-6 tracking-wide max-h-full  items-center justify-center bg-white rounded-2xl md:max-w-2xl  md:gap-4 md:py-24 md:px-16 md:mx-20 max-w-7xl">
       <div className="self-start">
@@ -40,6 +40,14 @@ const Contacts: NextPage = () => {
       </span>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      title: "Контакты",
+    },
+  };
 };
 
 export default Contacts;

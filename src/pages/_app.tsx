@@ -10,7 +10,7 @@ const MyApp: AppType = ({
   return (
     <>
       <Head>
-        <title>ОргНефтеХим</title>
+        <title>{`ОРГНЕФТЕХИМ · ${pageProps.title}`}</title>
         <meta name="yandex-verification" content="baaf62fcbc987ba4" />
       </Head>
       <Layout>
