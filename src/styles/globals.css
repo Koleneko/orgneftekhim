@@ -11,14 +11,10 @@
 
 @layer components {
   .placeholder-box {
-<<<<<<< HEAD
     @apply text-[20px] h-48 w-72 text-4xl flex items-center justify-center bg-[#ECECEC] rounded-2xl;
-=======
-    @apply mobile:text-[20px] mobile:h-48 mobile:w-72 text-4xl flex items-center justify-center bg-[#ECECEC] rounded-2xl tablet:h-[20%] tablet:w-[40%];
->>>>>>> main
   }
   .nav-button-desktop {
-    @apply cursor-pointer tablet:flex items-center text-sm leading-10 justify-center w-40 bg-black hover:bg-white hover:text-black  rounded-2xl desktop:text-base desktop:leading-[3.5rem];
+    @apply cursor-pointer md:flex items-center text-sm leading-10 justify-center w-40 bg-black hover:bg-white hover:text-black  rounded-2xl lg:text-base lg:leading-[3.5rem];
   }
   .menu {
     background-color: white;

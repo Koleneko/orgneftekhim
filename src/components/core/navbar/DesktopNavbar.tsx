@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import Logo from "src/components/misc/Logo";
 import useMediaQuery from "src/hooks/useMediaQuery";
 import BurgerBtn from "src/components/ui/burger-button/BurgerBtn";
-import useListenOutsideClick from "src/hooks/useListenOutsideClick";
 
 const DesktopNavBtn: FC<{ path: string }> = ({ path }) => {
   return (
@@ -66,17 +65,11 @@ const DesktopNavBtn: FC<{ path: string }> = ({ path }) => {
   );
 };
 
-const MobileNavBtn: FC<{ path: string }> = ({ path }) => {
+const MobileNavBtn: FC<{ path: string }> = ({}) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef(null);
-
-  // useListenOutsideClick(menuRef, () => setShowMenu(false), btnRef);
-
-  useEffect(() => {
-    console.log("showMenu", showMenu);
-  }, [showMenu]);
 
   return (
     <>
@@ -149,7 +142,7 @@ const MobileNavBtn: FC<{ path: string }> = ({ path }) => {
   );
 };
 
-const Navbar: FC<{ hidden?: boolean }> = ({ hidden }) => {
+const Navbar: FC<{ hidden?: boolean }> = () => {
   const path = useRouter().pathname;
 
   const isMobile = useMediaQuery(768);
@@ -183,13 +176,13 @@ const Navbar: FC<{ hidden?: boolean }> = ({ hidden }) => {
           </div>
         </Link>
         <a
-          href={"mailto:orgneftekhim@gmail.com"}
+          href={"mailto:info@orgneftekhim.ru"}
           className={
             "flex items-center absolute right-10 mobile:right-5 mobile:top-5 tablet:top-[100px]"
           }
         >
           <div className={"hidden tablet:flex pr-[10px]"}>
-            orgneftekhim@gmail.com
+            info@orgneftekhim.ru
           </div>
           <Image src={mail} alt="" />
         </a>
