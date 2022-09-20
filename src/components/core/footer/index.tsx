@@ -39,8 +39,8 @@ const Footer: FC = () => {
             142403, Россия, Московская область, г. Ногинск, ул. Индустриальная,
             д. 41В, Э/О 2/332.
             <br />
-            Телефон: +7(915) 097-39-27, +7(915) 097-23-97, E-mail:
-            info@orgneftekhim.ru info@orgneftekhim.ru
+            Телефон: 8 (800) 550-7-550, E-mail: info@orgneftekhim.ru
+            info@orgneftekhim.ru
           </div>
         </div>
       </div>
