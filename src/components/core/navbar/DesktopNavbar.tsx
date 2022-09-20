@@ -6,61 +6,24 @@ import tel from "public/assets/svg/tel.svg";
 import React, { FC, useRef, useState } from "react";
 import Logo from "src/components/misc/Logo";
 import BurgerBtn from "src/components/ui/burger-button/BurgerBtn";
+import { buttonsInfo } from "src/constants/buttons-info";
 import useMediaQuery from "src/hooks/useMediaQuery";
 
 const DesktopNavBtn: FC<{ path: string }> = ({ path }) => {
   return (
     <>
-      <Link href={"/about"} scroll={false}>
-        <div
-          className={
-            "nav-button-desktop" +
-            (path === "/about" ? " bg-gray-400 text-black" : "")
-          }
-        >
-          О нас
-        </div>
-      </Link>
-      <Link href={"/products"} scroll={false}>
-        <div
-          className={
-            "nav-button-desktop" +
-            (path === "/products" ? " bg-gray-400 text-black" : "")
-          }
-        >
-          Продукция
-        </div>
-      </Link>
-      <Link href={"/certificates"} scroll={false}>
-        <div
-          className={
-            "nav-button-desktop" +
-            (path === "/certificates" ? " bg-gray-400 text-black" : "")
-          }
-        >
-          Паспорта качества
-        </div>
-      </Link>
-      <Link href={"/for-customers"} scroll={false}>
-        <div
-          className={
-            "nav-button-desktop" +
-            (path === "/for-customers" ? " bg-gray-400 text-black" : "")
-          }
-        >
-          Клиентам
-        </div>
-      </Link>
-      <Link href={"/contacts"} scroll={false}>
-        <div
-          className={
-            "nav-button-desktop" +
-            (path === "/contacts" ? " bg-gray-400 text-black" : "")
-          }
-        >
-          Контакты
-        </div>
-      </Link>
+      {buttonsInfo.map((btn) => (
+        <Link href={btn.link} key={btn.link} scroll={false}>
+          <div
+            className={
+              "nav-button-desktop" +
+              (path === btn.link ? " bg-gray-400 text-black" : "")
+            }
+          >
+            {btn.title}
+          </div>
+        </Link>
+      ))}
     </>
   );
 };
@@ -79,58 +42,19 @@ const MobileNavBtn: FC<{ path: string }> = ({}) => {
           ref={menuRef}
           className=" bg-gray-800 absolute flex flex-col items-center w-screen justify-self-center gap-2 p-5 mt-[270px]"
         >
-          <Link href={"/about"} scroll={false}>
-            <div
-              onClick={() => setShowMenu(false)}
-              className={
-                "cursor-pointer hover:bg-white hover:text-black rounded-md"
-              }
-            >
-              О нас
-            </div>
-          </Link>
-          <Link href={"/products"} scroll={false}>
-            <div
-              onClick={() => setShowMenu(false)}
-              className={
-                "cursor-pointer tou hover:bg-white hover:text-black rounded-md"
-              }
-            >
-              Продукция
-            </div>
-          </Link>
-          <Link href={"/certificates"} scroll={false}>
-            <div
-              onClick={() => setShowMenu(false)}
-              className={
-                "cursor-pointer tou hover:bg-white hover:text-black rounded-md"
-              }
-            >
-              Паспорта качества
-            </div>
-          </Link>
-          <Link href={"/for-customers"} scroll={false}>
-            <div
-              onClick={() => setShowMenu(false)}
-              className={
-                "cursor-pointer tou hover:bg-white hover:text-black rounded-md"
-              }
-            >
-              Клиентам
-            </div>
-          </Link>
-          <Link href={"/contacts"} scroll={false}>
-            <div
-              onClick={() => setShowMenu(false)}
-              className={
-                "cursor-pointer tou hover:bg-white hover:text-black rounded-md"
-              }
-            >
-              Контакты
-            </div>
-          </Link>
+          {buttonsInfo.map((btn) => (
+            <Link href={btn.link} key={btn.link} scroll={false}>
+              <div
+                onClick={() => setShowMenu(false)}
+                className={
+                  "cursor-pointer hover:bg-white hover:text-black rounded-md"
+                }
+              >
+                {btn.title}
+              </div>
+            </Link>
+          ))}
         </div>
-        // </div>
       )}
       <BurgerBtn
         open={showMenu}
@@ -154,7 +78,7 @@ const Navbar: FC<{ hidden?: boolean }> = () => {
         }
       >
         <a
-          href={"tel:+7(915)097-23-97"}
+          href={"tel:8(800)550-7-550"}
           className={
             "flex items-center absolute left-10 sm:left-5 sm:top-5 md:top-[100px]"
           }
